@@ -1,0 +1,53 @@
+"C:\Users\Lenovo\AppData\Local\Programs\Python\Python310\python.exe " D:\ai_data\Accelerator\HW1\knn.py
+
+========================
+Distance: Euclidean
+========================
+
+K = 1
+Accuracy = 0.9565
+Precision = 0.9565924295167606
+Recall = 0.9565147676396779
+-------------------
+K = 3
+Accuracy = 0.95925
+Precision = 0.9594518955752463
+Recall = 0.9592450673028938
+-------------------
+ K = 5
+Accuracy = 0.959
+Precision = 0.9594209646910152
+Recall = 0.9588880957589586
+-------------------
+K = 9
+Accuracy = 0.95525
+Precision = 0.9555582715577794
+Recall = 0.9551507413531131
+-------------------
+
+========================
+Distance: Manhattan
+========================
+K = 1
+Accuracy = 0.95025
+Precision = 0.9504668270377861
+Recall = 0.9502357098257548
+-------------------
+K = 3
+Accuracy = 0.957
+Precision = 0.9572613783460786
+Recall = 0.9569432928694681
+-------------------
+K = 5
+Accuracy = 0.957
+Precision = 0.9577817117141887
+Recall = 0.9569251117156357
+-------------------
+K = 9
+Accuracy = 0.95625
+Precision = 0.9566404655255631
+Recall = 0.9562303230137135
+-------------------
+
+
+Process finished with exit code 0

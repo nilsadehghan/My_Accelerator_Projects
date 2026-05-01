@@ -1,0 +1,302 @@
+"C:\Users\Lenovo\AppData\Local\Programs\Python\Python310\python.exe " D:\ai_data\Accelerator_projects\part2_test\test.py
+Dataset: 20000 samples, 16 features
+Distance metric: Euclidean
+
+======================================================================
+PART A: Finding Optimal K (Complete Search - K=1 to 26)
+======================================================================
+
+--- Step 1: Quick evaluation for all K (1 to 26) ---
+Testing K = 1... Score: 0.0000 (time: 0.20s)
+Testing K = 2... Score: 0.1731 (time: 82.03s)
+Testing K = 3... Score: 0.1487 (time: 39.68s)
+Testing K = 4... Score: 0.1396 (time: 41.32s)
+Testing K = 5... Score: 0.1200 (time: 34.07s)
+Testing K = 6... Score: 0.1269 (time: 40.46s)
+Testing K = 7... Score: 0.1209 (time: 36.52s)
+Testing K = 8... Score: 0.1363 (time: 37.37s)
+Testing K = 9... Score: 0.1282 (time: 39.16s)
+Testing K = 10... Score: 0.1376 (time: 41.39s)
+Testing K = 11... Score: 0.1161 (time: 42.66s)
+Testing K = 12... Score: 0.1108 (time: 64.70s)
+Testing K = 13... Score: 0.1121 (time: 64.69s)
+Testing K = 14... Score: 0.1063 (time: 64.80s)
+Testing K = 15... Score: 0.1151 (time: 63.62s)
+Testing K = 16... Score: 0.1167 (time: 59.66s)
+Testing K = 17... Score: 0.1207 (time: 71.14s)
+Testing K = 18... Score: 0.1215 (time: 63.51s)
+Testing K = 19... Score: 0.1197 (time: 58.76s)
+Testing K = 20... Score: 0.1136 (time: 58.83s)
+Testing K = 21... Score: 0.1192 (time: 60.70s)
+Testing K = 22... Score: 0.1352 (time: 60.93s)
+Testing K = 23... Score: 0.1297 (time: 72.15s)
+Testing K = 24... Score: 0.1294 (time: 74.50s)
+Testing K = 25... Score: 0.1253 (time: 78.78s)
+Testing K = 26... Score: 0.1243 (time: 86.03s)
+
+Candidate Ks from quick search: [2, 3, 4]
+
+--- Step 2: Fine search on candidates ---
+Testing K = 2 (detailed)...
+  Score: 0.1752 (time: 82.97s)
+Testing K = 3 (detailed)...
+  Score: 0.1586 (time: 66.00s)
+Testing K = 4 (detailed)...
+  Score: 0.1525 (time: 70.07s)
+
+======================================================================
+✅ Best K: 2 (Silhouette Score: 0.1752)
+======================================================================
+
+======================================================================
+PART B: K-Means with Different Max Iterations
+======================================================================
+
+Using K = 2 (best from Silhouette Score)
+
+==================================================
+Testing max_iterations = 1
+==================================================
+  ✅ Saved labels to: kmeans_labels_iter1.csv
+  ✅ Saved labels history to: kmeans_labels_history_iter1.csv
+  Best K used: 2
+  Actual iterations performed: 1
+  Converged? No ❌
+  Total time: 0.1923 seconds
+  Avg time per iteration: 190.327 ms
+  Final Silhouette Score: 0.0877
+
+==================================================
+Testing max_iterations = 2
+==================================================
+  ✅ Saved labels to: kmeans_labels_iter2.csv
+  ✅ Saved labels history to: kmeans_labels_history_iter2.csv
+  Best K used: 2
+  Actual iterations performed: 2
+  Converged? No ❌
+  Total time: 0.3908 seconds
+  Avg time per iteration: 194.883 ms
+  Final Silhouette Score: 0.1500
+
+==================================================
+Testing max_iterations = 3
+==================================================
+  ✅ Saved labels to: kmeans_labels_iter3.csv
+  ✅ Saved labels history to: kmeans_labels_history_iter3.csv
+  Best K used: 2
+  Actual iterations performed: 3
+  Converged? No ❌
+  Total time: 0.5791 seconds
+  Avg time per iteration: 192.689 ms
+  Final Silhouette Score: 0.1650
+
+==================================================
+Testing max_iterations = 5
+==================================================
+  ✅ Saved labels to: kmeans_labels_iter5.csv
+  ✅ Saved labels history to: kmeans_labels_history_iter5.csv
+  Best K used: 2
+  Actual iterations performed: 5
+  Converged? No ❌
+  Total time: 1.0652 seconds
+  Avg time per iteration: 212.867 ms
+  Final Silhouette Score: 0.1704
+
+==================================================
+Testing max_iterations = 7
+==================================================
+  ✅ Saved labels to: kmeans_labels_iter7.csv
+  ✅ Saved labels history to: kmeans_labels_history_iter7.csv
+  Best K used: 2
+  Actual iterations performed: 7
+  Converged? No ❌
+  Total time: 1.7021 seconds
+  Avg time per iteration: 243.152 ms
+  Final Silhouette Score: 0.1754
+
+==================================================
+Testing max_iterations = 10
+==================================================
+  ✅ Saved labels to: kmeans_labels_iter10.csv
+  ✅ Saved labels history to: kmeans_labels_history_iter10.csv
+  Best K used: 2
+  Actual iterations performed: 10
+  Converged? No ❌
+  Total time: 1.9154 seconds
+  Avg time per iteration: 191.146 ms
+  Final Silhouette Score: 0.1746
+
+======================================================================
+📊 Iteration Performance Summary:
+======================================================================
+ max_iterations  actual_iterations converged  total_time_sec  silhouette_score
+              1                  1        No        0.192314          0.087727
+              2                  2        No        0.390770          0.149972
+              3                  3        No        0.579066          0.165012
+              5                  5        No        1.065241          0.170413
+              7                  7        No        1.702065          0.175438
+             10                 10        No        1.915446          0.174605
+
+✅ Saved iteration analysis to: kmeans_iteration_analysis.csv
+
+======================================================================
+PART C: Cluster Statistics (Mean & Std per Feature)
+======================================================================
+
+Running final K-Means with K = 2, max_iterations=10...
+
+======================================================================
+📊 TABLE 1: MEAN values per feature per cluster
+======================================================================
+ Cluster  Size  F1_mean  F2_mean  F3_mean  F4_mean  F5_mean  F6_mean  F7_mean  F8_mean  F9_mean  F10_mean  F11_mean  F12_mean  F13_mean  F14_mean  F15_mean  F16_mean
+       0 10985 0.347838 0.617721 0.424124 0.456623 0.322428 0.471825 0.493758 0.309689 0.350654  0.559533   0.41925  0.527003  0.259208  0.556620  0.304664  0.516705
+       1  9015 0.171241 0.287854 0.240725 0.238188 0.125635 0.445236 0.507672 0.307214 0.338650  0.543124   0.44369  0.530545  0.134672  0.555075  0.174775  0.524193
+
+======================================================================
+📊 TABLE 2: STD values per feature per cluster
+======================================================================
+ Cluster   F1_std   F2_std   F3_std   F4_std   F5_std   F6_std   F7_std   F8_std   F9_std  F10_std  F11_std  F12_std  F13_std  F14_std  F15_std  F16_std
+       0 0.107502 0.134442 0.104963 0.091947 0.131855 0.131777 0.139537 0.167628 0.155531 0.157768 0.163019 0.137548 0.161500 0.112073 0.170181 0.123920
+       1 0.069846 0.160867 0.090091 0.117952 0.069653 0.137564 0.171703 0.193990 0.162272 0.174866 0.188528 0.140076 0.115514 0.091001 0.142886 0.083977
+
+✅ Saved cluster statistics to: kmeans_cluster_stats_K2.csv
+
+======================================================================
+📊 FINAL SUMMARY - K-MEANS CLUSTERING
+======================================================================
+Dataset: 20000 samples, 16 features
+Distance metric: Euclidean
+Optimal K (Silhouette Score): 2 (Score: 0.1752)
+Total time for final run: 2.2949 seconds
+
+📁 Output files generated:
+  - kmeans_labels_iter*.csv (cluster labels for each max_iter)
+  - kmeans_labels_history_iter*.csv (labels history for each max_iter)
+  - kmeans_iteration_analysis.csv (iteration performance summary)
+  - kmeans_cluster_stats_K2.csv (mean & std per feature per cluster)
+
+📊 Cluster sizes:
+  Cluster 0: 10985 samples (54.9%)
+  Cluster 1: 9015 samples (45.1%)
+
+======================================================================
+PART D: Visualizations and Evaluation (All 16 Features)
+======================================================================
+
+Running final K-Means for visualization...
+✅ Saved cluster labels to: kmeans_clusters_K2.csv
+
+======================================================================
+Balanced Sampling (50 samples per cluster)
+======================================================================
+Total samples after balanced sampling: 100
+Unique clusters in sample: [0 1]
+
+1) Scatter Plot Matrix - 16x16 features WITH CENTROIDS
+
+2) Pair Plot - All 16 features WITH CENTROIDS (Low Density)
+Samples for Pair Plot: 30 (from 2 clusters)
+
+3) Strip Plot - All 16 features by Cluster
+
+4) Swarm Plot - All 16 features by Cluster WITH CENTROIDS
+
+5) Centroids Comparison - All 16 features (Explicit)
+
+======================================================================
+PART E: Confusion Matrix and Evaluation Metrics (No sklearn)
+======================================================================
+
+Actual labels shape: (20000,)
+Unique actual letters: ['A' 'B' 'C' 'D' 'E' 'F' 'G' 'H' 'I' 'J' 'K' 'L' 'M' 'N' 'O' 'P' 'Q' 'R'
+ 'S' 'T' 'U' 'V' 'W' 'X' 'Y' 'Z']
+
+--------------------------------------------------
+Step 1: Mapping clusters to actual letters
+--------------------------------------------------
+  Cluster 0 -> Letter 'I' (511 samples)
+  Cluster 1 -> Letter 'M' (537 samples)
+
+--------------------------------------------------
+Step 2: Building Confusion Matrix (Manual)
+--------------------------------------------------
+✅ Confusion matrix built: 26x26
+
+--------------------------------------------------
+Step 3: Calculating Metrics
+--------------------------------------------------
+✅ Accuracy: 0.0524 (5.24%)
+✅ Mean Precision: 0.0041
+✅ Mean Recall: 0.0521
+✅ Macro F1-Score: 0.0076
+
+--------------------------------------------------
+Step 4: Visualizing Confusion Matrix
+--------------------------------------------------
+
+--------------------------------------------------
+Step 5: Saving Confusion Matrix to CSV
+--------------------------------------------------
+✅ Saved confusion matrix to: kmeans_confusion_matrix_K2.csv
+✅ Saved evaluation metrics to: kmeans_evaluation_metrics_K2.csv
+
+--------------------------------------------------
+Step 6: Per-Class Precision and Recall
+--------------------------------------------------
+
+Letter   Precision    Recall       F1-Score
+--------------------------------------------------
+A        0.0000       0.0000       0.0000
+B        0.0000       0.0000       0.0000
+C        0.0000       0.0000       0.0000
+D        0.0000       0.0000       0.0000
+E        0.0000       0.0000       0.0000
+F        0.0000       0.0000       0.0000
+G        0.0000       0.0000       0.0000
+H        0.0000       0.0000       0.0000
+I        0.0581       0.6768       0.1070
+J        0.0000       0.0000       0.0000
+K        0.0000       0.0000       0.0000
+L        0.0000       0.0000       0.0000
+M        0.0479       0.6780       0.0895
+N        0.0000       0.0000       0.0000
+O        0.0000       0.0000       0.0000
+P        0.0000       0.0000       0.0000
+Q        0.0000       0.0000       0.0000
+R        0.0000       0.0000       0.0000
+S        0.0000       0.0000       0.0000
+T        0.0000       0.0000       0.0000
+U        0.0000       0.0000       0.0000
+V        0.0000       0.0000       0.0000
+W        0.0000       0.0000       0.0000
+X        0.0000       0.0000       0.0000
+Y        0.0000       0.0000       0.0000
+Z        0.0000       0.0000       0.0000
+
+======================================================================
+📊 FINAL SUMMARY - K-MEANS CLUSTERING (With Evaluation)
+======================================================================
+Dataset: 20000 samples, 16 features
+Distance metric: Euclidean
+Optimal K (Silhouette Score): 2 (Score: 0.1752)
+
+📈 Evaluation Metrics (after mapping clusters to letters):
+  - Accuracy: 0.0524 (5.24%)
+  - Mean Precision: 0.0041
+  - Mean Recall: 0.0521
+  - Macro F1-Score: 0.0076
+
+📁 Output files generated:
+  - kmeans_labels_iter*.csv (cluster labels for each max_iter)
+  - kmeans_labels_history_iter*.csv (labels history for each max_iter)
+  - kmeans_iteration_analysis.csv (iteration performance summary)
+  - kmeans_cluster_stats_K2.csv (mean & std per feature per cluster)
+  - kmeans_clusters_K2.csv (final cluster labels)
+  - kmeans_confusion_matrix_K2.csv (confusion matrix)
+  - kmeans_evaluation_metrics_K2.csv (accuracy, precision, recall, f1)
+
+📊 Cluster sizes:
+  Cluster 0: 8797 samples (44.0%)
+  Cluster 1: 11203 samples (56.0%)
+
+Process finished with exit code 0

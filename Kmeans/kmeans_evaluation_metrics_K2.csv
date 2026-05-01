@@ -1,0 +1,5 @@
+Metric,Value
+Accuracy,0.0524
+Mean Precision,0.004077752836821467
+Mean Recall,0.05210967288781858
+Macro F1-Score,0.007563627046574474
